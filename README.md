@@ -1,4 +1,4 @@
-# Awesome-Vivaldi
+# Vivaldi-UI
 
 自用的 Vivaldi 外觀套組
 
