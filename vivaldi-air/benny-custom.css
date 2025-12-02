@@ -1,0 +1,8 @@
+.UrlBar-AddressField{
+	margin-right: 10%;
+	margin-left: 10%;
+}
+
+#header #titlebar.tabless .window-buttongroup {
+  height: 25px !important;
+}

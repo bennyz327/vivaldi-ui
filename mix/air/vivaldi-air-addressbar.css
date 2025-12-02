@@ -1,0 +1,88 @@
+/* SETTING */
+:root {
+    --customRadius: 8px; /* NOT USING NOW */
+    --bgDark: rgba(0, 0, 0, 0.4);
+    --bgLight: rgba(255, 255, 255, 0.4);
+    --bgDisabledDark: rgba(0, 0, 0, 0.2);
+    --bgDisabledLight: rgba(255, 255, 255, 0.2);
+    --blurLow: blur(4px);
+    --blurMed: blur(6px);
+    --blurMedHigh: blur(8px);
+    --blurHigh: blur(12px);
+    --hoverBlur: var(--blurMed);
+    --anim-duration: 128ms;
+    --space: 5px;
+}
+
+.theme-dark {
+    --bg: var(--bgDark);
+    --bgDisabled: var(--bgDisabledDark);
+}
+
+.theme-light {
+    --bg: var(--bgLight);
+    --bgDisabled: var(--bgDisabledLight);
+}
+
+
+/* MAINBAR */
+
+#browser.win.address-top .toolbar-mainbar:has(.window-buttongroup.on-mainbar),
+#browser.linux.address-top .toolbar-mainbar:has(.window-buttongroup.on-mainbar) {
+    min-height: calc(42px / var(--uiZoomLevel));
+}
+
+.density-on .UrlBar-SearchField,
+.density-on .UrlBar-AddressField {
+    height: 34px;
+}
+
+/*.disable-titlebar#browser.win .window-buttongroup {*/
+/*    height: 42px;*/
+/*}*/
+
+#browser.win .window-buttongroup button.window-close {
+    border-top-right-radius: var(--radius);
+    border-bottom-right-radius: var(--radius);
+}
+
+.mainbar {
+    background-color: var(--bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    margin: 5px;
+    border-radius: var(--radius);
+}
+
+.SearchField, .UrlBar-AddressField {
+    border: none !important;
+    background-color: transparent;
+}
+
+.SearchField:hover, .UrlBar-AddressField:hover,
+.color-behind-tabs-on .SearchField:focus-within,
+.color-behind-tabs-on .MailSearchField-Inner:focus-within,
+.color-behind-tabs-on .UrlBar-AddressField:focus-within {
+    background-color: var(--bg);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.UrlFragment-Wrapper--ShouldHighlight {
+    --HighlightColor: var(--colorFg);
+    --LowlightColor: var(--colorFg);
+}
+
+.address-top .mainbar { border-bottom: none; }
+
+.mainbar button:hover,
+#browser:not(.tabs-top) .vivaldi:hover,
+#browser:not(.tabs-top) .vivaldi:focus-visible,
+.theme-dark#browser.win .window-buttongroup button:hover {
+    background-color: var(--bg);
+    backdrop-filter: var(--blurMed);
+}
+
+/*.disable-titlebar.address-top#browser:not(.tabs-top) .vivaldi {*/
+/*    margin: 0 5px;*/
+/*}*/
