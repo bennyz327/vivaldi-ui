@@ -48,7 +48,7 @@
 
 .mainbar {
     background-color: var(--bg);
-    backdrop-filter: blur(12px);
+    /*backdrop-filter: blur(12px); 如果開啟則網址欄的建議選項會被遮擋*/
     -webkit-backdrop-filter: blur(12px);
     margin: 5px;
     border-radius: var(--radius);

@@ -9,7 +9,7 @@ You may manage and config all your css mods and config them as well all in this 
 /* Import AutoHide folder CSS files */
 @import "AutoHide/AdaptiveBF.css";
 @import "AutoHide/Tabbar.css";
- @import "AutoHide/Bookmarkbar.css";
+@import "AutoHide/Bookmarkbar.css";
 @import "AutoHide/Panel.css";
 @import "AutoHide/StatusBar.css";
 
