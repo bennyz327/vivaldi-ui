@@ -1,0 +1,49 @@
+:root {
+  --tabbarCollapsedWidth: 42px;   /* collapsed width */
+  --tabbarExpandedWidth: 200px;   /* expanded width  */
+  --tabbarHoverDuration: .02s;
+  --tabbarHoverStartDelay: .50s;
+  --tabbarHoverEndDelay: .00s;
+}
+
+/* --- Reserve space for collapsed tabbar (newer Vivaldi layout) --- */
+#browser:not(.fullscreen).tabs-left  #main > .inner { padding-left:  var(--tabbarCollapsedWidth); box-sizing: border-box; }
+#browser:not(.fullscreen).tabs-right #main > .inner { padding-right: var(--tabbarCollapsedWidth); box-sizing: border-box; }
+
+/* --- Floating vertical tabbar (collapsed by default) --- */
+#browser:is(.tabs-left, .tabs-right) .tabbar-wrapper {
+  position: absolute !important;
+  top: 0;
+  height: 100% !important;
+  width: var(--tabbarCollapsedWidth) !important;
+  z-index: 10;
+  transition: width var(--tabbarHoverDuration) ease-out var(--tabbarHoverEndDelay) !important;
+}
+
+/* anchor to side */
+#browser.tabs-left  .tabbar-wrapper { left: 0; }
+#browser.tabs-right .tabbar-wrapper { right: 0; }
+
+/* ensure inner container stretches */
+#browser.tabs-left  #tabs-tabbar-container.left,
+#browser.tabs-right #tabs-tabbar-container.right {
+  width: 100% !important;
+}
+
+/* --- Expand on hover / focus --- */
+#browser:is(.tabs-left, .tabs-right) .tabbar-wrapper:is(:hover, :focus-within),
+#browser:has(.WorkspacePopup) .tabbar-wrapper,
+#browser:has(#vivaldi-tooltip .tab-group) .tabbar-wrapper {
+  width: var(--tabbarExpandedWidth) !important;
+  transition: width var(--tabbarHoverDuration) ease-in var(--tabbarHoverStartDelay) !important;
+}
+
+/* Optional: hide workspace button text when collapsed, show when expanded */
+#browser:is(.tabs-left, .tabs-right) .tabbar-wrapper:not(:is(:hover, :focus-within))
+  button[name="WorkspaceButton"] :is(.button-title, .button-toolbar-menu-indicator) {
+  display: none !important;
+}
+#browser:is(.tabs-left, .tabs-right) .tabbar-wrapper:is(:hover, :focus-within)
+  button[name="WorkspaceButton"] :is(.button-title, .button-toolbar-menu-indicator) {
+  display: inherit !important;
+}
