@@ -28,6 +28,11 @@
 #browser.tabs-left  #tabs-tabbar-container.left,
 #browser.tabs-right #tabs-tabbar-container.right {
   width: 100% !important;
+  background-color: var(--colorAccentBg);
+}
+
+#browser .tab.active {
+	background-color: var(--colorHighlightBg);
 }
 
 /* --- Expand on hover / focus --- */
