@@ -5,9 +5,6 @@
 ## 套組
 根目錄中不同目錄屬於不同的CSS套組，無法同時啟用
 
-### 當前套組
-1. `awesome-vivaldi`
-
 ## awesome-vivaldi
 修改自 https://github.com/PaRr0tBoY/Awesome-Vivaldi 捨棄js僅css，不包括多餘功能，僅測試於 Windows 環境 (Win11-24H2)
 ### 設定步驟
