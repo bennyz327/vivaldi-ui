@@ -35,6 +35,20 @@
 	background-color: var(--colorHighlightBg);
 }
 
+/* 配合 8.0 unified 模式更新 */
+.unified-ui .mainbar {
+	background-color: var(--colorAccentBg);
+}
+:root,
+body,
+#browser {
+  --browserBlurredImage: linear-gradient(
+    0deg,
+    var(--colorAccentBg),
+    var(--colorAccentBg)
+  ) !important;
+}
+
 /* --- Expand on hover / focus --- */
 #browser:is(.tabs-left, .tabs-right) .tabbar-wrapper:is(:hover, :focus-within),
 #browser:has(.WorkspacePopup) .tabbar-wrapper,
