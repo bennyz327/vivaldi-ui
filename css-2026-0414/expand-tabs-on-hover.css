@@ -1,16 +1,21 @@
 :root {
-  --tabbarCollapsedWidth: 42px;   /* collapsed width */
-  --tabbarExpandedWidth: 200px;   /* expanded width  */
+  --tabbarCollapsedWidth: 42px;
+  --tabbarExpandedWidth: 200px;
   --tabbarHoverDuration: .02s;
   --tabbarHoverStartDelay: .50s;
   --tabbarHoverEndDelay: .00s;
 }
 
-/* --- Reserve space for collapsed tabbar (newer Vivaldi layout) --- */
-#browser:not(.fullscreen).tabs-left  #main > .inner { padding-left:  var(--tabbarCollapsedWidth); box-sizing: border-box; }
-#browser:not(.fullscreen).tabs-right #main > .inner { padding-right: var(--tabbarCollapsedWidth); box-sizing: border-box; }
+#browser:not(.fullscreen).tabs-left #main > .inner {
+  padding-left: var(--tabbarCollapsedWidth);
+  box-sizing: border-box;
+}
 
-/* --- Floating vertical tabbar (collapsed by default) --- */
+#browser:not(.fullscreen).tabs-right #main > .inner {
+  padding-right: var(--tabbarCollapsedWidth);
+  box-sizing: border-box;
+}
+
 #browser:is(.tabs-left, .tabs-right) .tabbar-wrapper {
   position: absolute !important;
   top: 0;
@@ -20,25 +25,28 @@
   transition: width var(--tabbarHoverDuration) ease-out var(--tabbarHoverEndDelay) !important;
 }
 
-/* anchor to side */
-#browser.tabs-left  .tabbar-wrapper { left: 0; }
-#browser.tabs-right .tabbar-wrapper { right: 0; }
+#browser.tabs-left .tabbar-wrapper {
+  left: 0;
+}
 
-/* ensure inner container stretches */
-#browser.tabs-left  #tabs-tabbar-container.left,
+#browser.tabs-right .tabbar-wrapper {
+  right: 0;
+}
+
+#browser.tabs-left #tabs-tabbar-container.left,
 #browser.tabs-right #tabs-tabbar-container.right {
   width: 100% !important;
   background-color: var(--colorAccentBg);
 }
 
 #browser .tab.active {
-	background-color: var(--colorHighlightBg);
+  background-color: var(--colorHighlightBg);
 }
 
-/* 配合 8.0 unified 模式更新 */
 .unified-ui .mainbar {
-	background-color: var(--colorAccentBg);
+  background-color: var(--colorAccentBg);
 }
+
 :root,
 body,
 #browser {
@@ -49,7 +57,6 @@ body,
   ) !important;
 }
 
-/* --- Expand on hover / focus --- */
 #browser:is(.tabs-left, .tabs-right) .tabbar-wrapper:is(:hover, :focus-within),
 #browser:has(.WorkspacePopup) .tabbar-wrapper,
 #browser:has(#vivaldi-tooltip .tab-group) .tabbar-wrapper {
@@ -57,12 +64,25 @@ body,
   transition: width var(--tabbarHoverDuration) ease-in var(--tabbarHoverStartDelay) !important;
 }
 
-/* Optional: hide workspace button text when collapsed, show when expanded */
-#browser:is(.tabs-left, .tabs-right) .tabbar-wrapper:not(:is(:hover, :focus-within))
-  button[name="WorkspaceButton"] :is(.button-title, .button-toolbar-menu-indicator) {
+#browser:is(.tabs-left, .tabs-right)
+  .tabbar-wrapper:not(:is(:hover, :focus-within))
+  button[name="WorkspaceButton"]
+  :is(.button-title, .button-toolbar-menu-indicator) {
   display: none !important;
 }
-#browser:is(.tabs-left, .tabs-right) .tabbar-wrapper:is(:hover, :focus-within)
-  button[name="WorkspaceButton"] :is(.button-title, .button-toolbar-menu-indicator) {
+
+#browser:is(.tabs-left, .tabs-right)
+  .tabbar-wrapper:is(:hover, :focus-within)
+  button[name="WorkspaceButton"]
+  :is(.button-title, .button-toolbar-menu-indicator) {
   display: inherit !important;
+}
+
+#browser.maximized:is(.tabs-left, .tabs-right) .tab-strip {
+  margin: 0 6px !important;
+  max-width: calc(100% - 6px) !important;
+}
+
+#browser.maximized:is(.tabs-left, .tabs-right) .tab-strip .tab-position {
+  padding: 0 !important;
 }
